@@ -1,5 +1,5 @@
 import '../css/ProfilePage.css';
-import profileImage from '../../src/images/dummy-user_fhxb6e.png';
+import profileImage from '../images/Womendummy.jpg';
 
 import {
   UserCheck,
