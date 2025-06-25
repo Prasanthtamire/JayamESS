@@ -45,7 +45,7 @@ const EmployeeDashboard = () => {
 
 <div className="employee-info">
   {/* <img src={profileImage} alt="Profile" className="profile-pic" /> */}
-  <img src="../images/Womendummy.jpg" alt="Profile" className="profile-pic" />
+  <img src="../../src/images/Womendummy.jpg" alt="Profile" className="profile-pic" />
 
   <div className="employee-meta">
     <div className="info-row">
