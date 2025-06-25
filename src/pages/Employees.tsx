@@ -15,7 +15,11 @@ import {
   Eye,
 } from 'lucide-react';
 
+import { useNavigate } from 'react-router-dom';
 const Employees: React.FC = () => {
+
+   const navigate = useNavigate();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 
@@ -119,7 +123,8 @@ const Employees: React.FC = () => {
         className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
       >
         <div>
-          <p className="text-gray-600">Manage your team members and their information</p>
+          <h1 className="text-3xl font-bold text-gray-900">Employees</h1>
+          {/* <p className="text-gray-600">Manage your team members and their information</p> */}
         </div>
         
         <div className="flex items-center space-x-3">
@@ -132,14 +137,15 @@ const Employees: React.FC = () => {
             <span>Export</span>
           </motion.button>
           
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg hover:shadow-lg transition-all duration-200"
-          >
-            <Plus className="w-4 h-4" />
-            <span>Add Employee</span>
-          </motion.button>
+           <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={() => navigate('/Addemployee')}
+      className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg hover:shadow-lg transition-all duration-200"
+    >
+      <Plus className="w-4 h-4" />
+      <span>Add Employee</span>
+    </motion.button>
         </div>
       </motion.div>
 
@@ -249,37 +255,45 @@ const Employees: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-              <span className="text-xs text-gray-500">
-                Joined {new Date(employee.joinDate).toLocaleDateString()}
-              </span>
-              
-              <div className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors"
-                >
-                  <Eye className="w-4 h-4" />
-                </motion.button>
-                
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-2 rounded-full bg-green-100 text-green-600 hover:bg-green-200 transition-colors"
-                >
-                  <Edit className="w-4 h-4" />
-                </motion.button>
-                
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition-colors"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </motion.button>
-              </div>
-            </div>
+ <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+  <span className="text-xs text-gray-500">
+    Joined {new Date(employee.joinDate).toLocaleDateString()}
+  </span>
+
+  <div className="flex items-center space-x-2">
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="p-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors"
+      onClick={() => navigate(`/view/${employee.id}`)}
+      title="View"
+    >
+      <Eye className="w-4 h-4" />
+    </motion.button>
+
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="p-2 rounded-full bg-green-100 text-green-600 hover:bg-green-200 transition-colors"
+      onClick={() => navigate(`/edit/${employee.id}`)}
+      title="Edit"
+    >
+      <Edit className="w-4 h-4" />
+    </motion.button>
+
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition-colors"
+      onClick={() => console.log('Delete', employee.id)}
+      title="Delete"
+    >
+      <Trash2 className="w-4 h-4" />
+    </motion.button>
+  </div>
+</div>
+
+
 
             {/* Animated background effect */}
             <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 bg-gradient-to-r from-primary-500 to-secondary-500 transition-opacity duration-300" />

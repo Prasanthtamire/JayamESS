@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import StatsCard from '../components/StatsCard';
 
-const Dashboard: React.FC = () => {
+const Companypolicy: React.FC = () => {
   const stats = [
     {
       title: 'Total Employees',
@@ -117,12 +117,12 @@ const Dashboard: React.FC = () => {
         transition={{ delay: 0.1 }}
         className="mb-8"
       >
-        {/* <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Welcome back, John! 👋
-        </h1> */}
-        <p className="text-gray-600">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          Welcome back, Prasanth! 👋
+        </h1>
+        {/* <p className="text-gray-600">
           Here's what's happening in your organization today.
-        </p>
+        </p> */}
       </motion.div>
 
       {/* Stats Grid */}
@@ -272,4 +272,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Companypolicy;

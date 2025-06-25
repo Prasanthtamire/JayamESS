@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Menu, Bell, Search, MessageSquare } from 'lucide-react';
-import profileImage from '../Images/pawan kalyan.jpeg'; // adjust path as needed
-import '../css/Sidebar.css';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -65,13 +63,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
           {/* User Avatar */}
           <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
-            <span className="text-white text-sm font-medium">JD</span>
+            <span className="text-white text-sm font-medium">GP</span>
           </div>
-          {/* <img
-            src={profileImage}
-            alt="Profile"
-            className="profile-image"
-          /> */}
         </div>
       </div>
     </motion.header>

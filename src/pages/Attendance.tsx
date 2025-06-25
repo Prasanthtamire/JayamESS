@@ -168,7 +168,7 @@ const Attendance: React.FC = () => {
       >
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Attendance</h1>
-          <p className="text-gray-600">Track and manage employee attendance</p>
+          {/* <p className="text-gray-600">Track and manage employee attendance</p> */}
         </div>
         
         <div className="flex items-center space-x-3">

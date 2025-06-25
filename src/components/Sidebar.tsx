@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -20,7 +20,7 @@ import {
   Building2
 } from 'lucide-react';
 import profileImage from '../Images/pawan kalyan.jpeg'; // adjust path as needed
-import jayam from '../Images/Hrmslogo.jpg'; // adjust path as needed
+import jayam from '../Images/JayamLogo.jpg'; // adjust path as needed
 
 import '../css/Sidebar.css';
 
@@ -41,9 +41,8 @@ const menuItems = [
     path: '/employees',
     submenu: [
       { title: 'All Employees', path: '/employees' },
-
-      { title: 'Company Policies', path: '/dashboard' },
-      { title: 'Organization Chart', path: '/employees/directory' },
+    // { title: 'Company Policies', path: '/company-policy' }, 
+    //   { title: 'Organization Chart', path: '/employees/attendance' },
     ],
   },
   {
@@ -52,18 +51,19 @@ const menuItems = [
     path: '/attendance',
     submenu: [
       { title: 'Daily Attendance', path: '/attendance' },
-      { title: 'Attendance Report', path: '/attendance/report' },
-      { title: 'Time Tracking', path: '/attendance/tracking' },
+      // { title: 'Attendance Report', path: '/attendance/report' },
+      // { title: 'Time Tracking', path: '/attendance/tracking' },
     ],
   },
+ 
   {
     title: 'Leave Management',
     icon: Calendar,
     path: '/leave',
     submenu: [
       { title: 'Leave Requests', path: '/leave' },
-      { title: 'Leave Balance', path: '/leave/balance' },
-      { title: 'Leave Calendar', path: '/leave/calendar' },
+      // { title: 'Leave Balance', path: '/leave/balance' },
+      // { title: 'Leave Calendar', path: '/leave/calendar' },
     ],
   },
   {
@@ -72,8 +72,8 @@ const menuItems = [
     path: '/payroll',
     submenu: [
       { title: 'Salary Management', path: '/payroll' },
-      { title: 'Payslips', path: '/payroll/payslips' },
-      { title: 'Bonus & Incentives', path: '/payroll/bonus' },
+      // { title: 'Payslips', path: '/payroll/payslips' },
+      // { title: 'Bonus & Incentives', path: '/payroll/bonus' },
     ],
   },
   {
@@ -82,8 +82,8 @@ const menuItems = [
     path: '/performance',
     submenu: [
       { title: 'Performance Review', path: '/performance' },
-      { title: 'Goals & Objectives', path: '/performance/goals' },
-      { title: 'Appraisals', path: '/performance/appraisals' },
+      // { title: 'Goals & Objectives', path: '/performance/goals' },
+      // { title: 'Appraisals', path: '/performance/appraisals' },
     ],
   },
   {
@@ -92,8 +92,8 @@ const menuItems = [
     path: '/reports',
     submenu: [
       { title: 'Analytics', path: '/reports' },
-      { title: 'Employee Reports', path: '/reports/employees' },
-      { title: 'Attendance Reports', path: '/reports/attendance' },
+      // { title: 'Employee Reports', path: '/reports/employees' },
+      // { title: 'Attendance Reports', path: '/reports/attendance' },
     ],
   },
   {
@@ -105,16 +105,33 @@ const menuItems = [
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const location = useLocation();
+  const sidebarRef = useRef(null);
+
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const toggleExpanded = (title: string) => {
     setExpandedItems(prev =>
-      prev.includes(title)
-        ? prev.filter(item => item !== title)
-        : [...prev, title]
+      prev.includes(title) ? [] : [title]  // Accordion behavior
     );
   };
+  
+  // 🔹 Collapse on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !(sidebarRef.current as HTMLElement).contains(event.target as Node)
+      ) {
+        setExpandedItems([]); // close all menus
+        setShowUserMenu(false); // close user dropdown too
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -137,13 +154,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     },
   };
 
+//   useEffect(() => {
+//   setExpandedItems([]);
+//   setShowUserMenu(false);
+// }, [location.pathname]);
+
   return (
     <motion.div
+            ref={sidebarRef}
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
       variants={sidebarVariants}
       className="fixed lg:relative z-50 flex flex-col w-64 h-full bg-white shadow-2xl lg:shadow-lg lg:translate-x-0"
     >
+
       {/* Header */}
       <div className="flex items-center justify-between p-3 border-b border-gray-200">
         <div className="flex items-center space-x-3">
@@ -284,14 +308,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 <User className="w-4 h-4" />
                 <span>Profile</span>
               </Link>
-              <Link
-                to="/settings"
-                onClick={onClose}
-                className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-              >
-                <Settings className="w-4 h-4" />
-                <span>Settings</span>
-              </Link>
+            
               <button className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors w-full text-left">
                 <Edit className="w-4 h-4" />
                 <span>Edit Profile</span>

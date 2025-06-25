@@ -193,8 +193,8 @@ const Leave: React.FC = () => {
         className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
       >
         <div>
-          {/* <h1 className="text-3xl font-bold text-gray-900">Leave Management</h1> */}
-          <p className="text-gray-600">Manage employee leave requests and balances</p>
+          <h1 className="text-3xl font-bold text-gray-900">Leave Management</h1>
+          {/* <p className="text-gray-600">Manage employee leave requests and balances</p> */}
         </div>
         
         <motion.button
