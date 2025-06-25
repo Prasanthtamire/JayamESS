@@ -49,7 +49,7 @@ const Login: React.FC = () => {
       ) {
         navigate('/dashboard');
       } else {
-        alert('Invalid credentials! Use EMP123 / admin123');
+        alert('Invalid credentials! Use JYM2025001');
       }
       setIsLoading(false);
     }, 1500);

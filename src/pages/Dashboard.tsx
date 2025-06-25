@@ -1,6 +1,6 @@
-import React from 'react';
 import '../css/ProfilePage.css';
-import profileImage from '../images/Womendummy.jpg';
+import profileImage from '../../src/images/dummy-user_fhxb6e.png';
+
 import {
   UserCheck,
   Clock,
