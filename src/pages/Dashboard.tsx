@@ -1,5 +1,5 @@
 import '../css/ProfilePage.css';
-import profileImage from '../images/Womendummy.jpg';
+// import profileImage from '../images/Womendummy.jpg';
 
 import {
   UserCheck,
@@ -44,7 +44,9 @@ const EmployeeDashboard = () => {
         </div>
 
 <div className="employee-info">
-  <img src={profileImage} alt="Profile" className="profile-pic" />
+  {/* <img src={profileImage} alt="Profile" className="profile-pic" /> */}
+  <img src="../images/Womendummy.jpg" alt="Profile" className="profile-pic" />
+
   <div className="employee-meta">
     <div className="info-row">
       <span className="label">Name:</span>
