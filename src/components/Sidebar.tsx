@@ -19,8 +19,8 @@ import {
   X,
   Building2
 } from 'lucide-react';
-import profileImage from '../Images/pawan kalyan.jpeg'; // adjust path as needed
-import jayam from '../Images/JayamLogo.jpg'; // adjust path as needed
+import profileImage from '../Images/JayamLogo.jpg'; 
+import jayam from '../Images/JayamLogo.jpg'; 
 
 import '../css/Sidebar.css';
 

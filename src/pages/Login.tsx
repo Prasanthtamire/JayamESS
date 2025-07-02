@@ -13,7 +13,7 @@ import {
   Mail
 } from 'lucide-react';
 import './Login.css';
-import jayam from '../Images/JAYAM LOGO.jpg'; // adjust path as needed
+import jayam from '../Images/JAYAM LOGO.jpg'; 
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -48,9 +48,10 @@ const Login: React.FC = () => {
         formData.password === staticCredentials.password
       ) {
         navigate('/dashboard');
-      } else {
-        alert('Invalid credentials! Use JYM2025001');
-      }
+     } else {
+  alert('Invalid credentials! Use JYM2025001');
+}
+
       setIsLoading(false);
     }, 1500);
   };
