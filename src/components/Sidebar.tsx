@@ -45,6 +45,21 @@ const menuItems = [
     //   { title: 'Organization Chart', path: '/employees/attendance' },
     ],
   },
+   {
+    title: 'Master',
+    icon: FileText,
+    path: '/master',
+    submenu: [
+      { title: 'Band', path: '/band' },
+      { title: 'Department', path: '/department' },
+      { title: 'Designation', path: '/designation' },
+      { title: 'Languages', path: '/languages' },
+      { title: 'Leaves Code', path: '/leavescode' },
+      { title: 'Employee Relatives', path: '/Employeerelatives' },
+
+
+    ],
+  },
   {
     title: 'Attendance',
     icon: Clock,
@@ -61,8 +76,8 @@ const menuItems = [
     icon: Calendar,
     path: '/leave',
     submenu: [
-      { title: 'Leave Requests', path: '/leave' },
-      // { title: 'Leave Balance', path: '/leave/balance' },
+            { title: 'Leave Application', path: '/leaveapplication' },
+            { title: 'Leave Approval', path: '/leave' },
       // { title: 'Leave Calendar', path: '/leave/calendar' },
     ],
   },
@@ -86,21 +101,27 @@ const menuItems = [
       // { title: 'Appraisals', path: '/performance/appraisals' },
     ],
   },
-  {
-    title: 'Reports',
+ 
+   {
+    title: 'HRM',
     icon: FileText,
-    path: '/reports',
+    path: '/hrm',
     submenu: [
-      { title: 'Analytics', path: '/reports' },
+      { title: 'Analytics', path: '/Analytics' },
       // { title: 'Employee Reports', path: '/reports/employees' },
       // { title: 'Attendance Reports', path: '/reports/attendance' },
     ],
   },
-  {
-    title: 'Settings',
-    icon: Settings,
-    path: '/settings',
-  },
+  // {
+  //   title: 'Master',
+  //   icon: Settings,
+  //   path: '/Master',
+  //    submenu: [
+  //     { title: 'Department', path: '/Department' },
+  //     { title: 'Employee Reports', path: '/reports/employees' },
+  //      { title: 'Attendance Reports', path: '/reports/attendance' },
+  //   ],
+  // },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {

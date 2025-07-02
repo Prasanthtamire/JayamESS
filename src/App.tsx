@@ -9,7 +9,7 @@ import Leave from './pages/Leave';
 import Payroll from './pages/Payroll';
 import Performance from './pages/Performance';
 import Reports from './pages/Reports';
-import Settings from './pages/Settings';
+import ScrollTop from './pages/ScrollTop';
 import Profile from './pages/Profile';
 import Addemployee from './pages/AddEmployee';
 import { Calendar } from 'lucide-react';
@@ -17,14 +17,26 @@ import CompanyPolicy from './pages/CompanyPolicies'; // ⬅️ Add this at the t
 import EditEmployee from './pages/EditEmployee';
 import ViewEmployee from './pages/EditEmployee';
 import NewEmployee from './pages/EditEmployee';
+import Department from './Masters/Department';
+import Designation from './Masters/Designation';
+import Band from './Masters/Band';
+import Languages from './Masters/Languages';
+import LeavesCode from './Masters/LeavesCode';
+import Employeerelatives from './Masters/Employeesrelatives';
+import LeaveApplication from './pages/LeaveApplicationPage';
+
+
 
 
 function App() {
   return (
     <Router>
+                         <ScrollTop />
+
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 font-poppins">
         <AnimatePresence mode="wait">
           <Routes>
+
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Layout> <Dashboard /> </Layout> } />
@@ -35,12 +47,20 @@ function App() {
             <Route path="/payroll" element={<Layout><Payroll /></Layout> } />
             <Route path="/performance" element={<Layout><Performance /></Layout>} />
             <Route path="/reports" element={  <Layout><Reports /></Layout>} />
-            <Route path="/settings" element={ <Layout><Settings /></Layout>   } />
+            {/* <Route path="/settings" element={ <Layout><Settings /></Layout>   } /> */}
             <Route path="/profile" element={ <Layout> <Profile /> </Layout>   } />
             <Route path="/Addemployee" element={ <Layout> <Addemployee /> </Layout>   } />
             <Route path="/EditEmployee" element={ <Layout> <EditEmployee /> </Layout>   } />
             <Route path="/ViewEmployee" element={ <Layout> <ViewEmployee /> </Layout>   } />
             <Route path="/NewEmployee" element={ <Layout> <NewEmployee /> </Layout>   } />
+            <Route path="/department" element={ <Layout> <Department /> </Layout>   } />
+            <Route path="/designation" element={ <Layout> <Designation /> </Layout>   } />
+            <Route path="/LeaveApplication" element={ <Layout> <LeaveApplication /> </Layout>   } />
+
+            <Route path="/band" element={ <Layout> <Band /> </Layout>   } />
+            <Route path="/languages" element={ <Layout> <Languages /> </Layout>   } />
+            <Route path="/LeavesCode" element={ <Layout> <LeavesCode /> </Layout>   } />
+            <Route path="/Employeerelatives" element={ <Layout> <Employeerelatives /> </Layout>   } />
 
           </Routes>
         </AnimatePresence>

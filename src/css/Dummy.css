@@ -38,6 +38,47 @@
   align-items: center;
 }
 
+  .button-container {
+  margin: 10px !important;
+}
+
+.save-button {
+  background-color: #359392 !important;
+  color: black !important;
+  margin-right: 10px !important;
+  text-transform: none !important;
+  font-family: 'Poppins', sans-serif !important;
+  height: 30px !important;
+  width: 50px !important;
+}
+
+.view-button {
+  background: rgb(144, 223, 222) !important;
+  color: black !important;
+  text-transform: none !important;
+  font-family: 'Poppins', sans-serif !important;
+    height: 30px !important;
+      width: 50px !important;
+
+
+}
+
+.clear-button {
+  background-color: #c1dedc !important;
+  color: black !important;
+  margin-left: 10px !important;
+  text-transform: none !important;
+  font-family: 'Poppins', sans-serif !important;
+    height: 30px !important;
+      width: 50px !important;
+
+
+}
+.table-dark {
+    --bs-table-color: #000000 !important;
+    --bs-table-bg: #c9d8e6 !important;
+    --bs-table-border-color: #ccd1d4 !important;
+}
 /* Common icon styles */
 .action-icons i {
   font-size: 16px;
